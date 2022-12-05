@@ -1,11 +1,14 @@
 const express = require('express')
+const userRoute = require('./src/routes/User.route')
 const app = express()
+const connectcDatabase = require('./src/database/db')
+const port = 3000; // Definição da porta
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
+connectcDatabase()
+
+app.use(express.json()) //Faz com que ele receba um JSON - 
+
+app.use("/user", userRoute) // Rota para CRUD usuario
 
 
-
-//Localhost:3000
-app.listen(3000)
+app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
