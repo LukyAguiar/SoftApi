@@ -9,8 +9,8 @@ connectcDatabase()
 
 app.use(express.json()) //Faz com que ele receba um JSON - 
 
-app.use("/user", userRoute) // Rota para CRUD usuario
-app.use("/hubSpot", hubSpotRoute)
+app.use('/user', userRoute) // Rota para CRUD usuario
+app.use('/hubspot', hubSpotRoute)
 
 
 app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
