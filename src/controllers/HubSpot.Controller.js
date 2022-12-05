@@ -1,7 +1,5 @@
 const Yup = require('yup');
-const Contact = require('../Models/Contact');
-const axios = require('axios');
-const { hapikey } = require('../../config/config');
+const Contact = require('../models/Contact.model');
 const hubspot = require('@hubspot/api-client');
 
 class ContactController {
@@ -52,8 +50,7 @@ class ContactController {
 
         try {
             const apiResponse = await hubspotClient.crm.contacts.basicApi.create(SimplePublicObjectInput);
-            console.log(JSON.stringify(apiResponse.body, null, 2));
-            console.log("FUNFO PORRA")
+            console.log("Contato cadastrado com sucesso! ")
         } catch (e) {
             e.message === 'HTTP request failed'
                 ? console.error(JSON.stringify(e.response, null, 2))
@@ -79,7 +76,6 @@ class ContactController {
             return res.status(200).json({
                 error: false,
                 message: "Contato cadastrado com sucesso",
-                contact
             })
         })
 
