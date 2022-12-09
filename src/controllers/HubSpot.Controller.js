@@ -36,7 +36,7 @@ class ContactController {
         //Recebendo as informações no body
         const { name, lastname ,email, phone, } = req.body;
 
-        const hubspotClient = new hubspot.Client({ "accessToken": "pat-na1-433f4fd5-4909-4979-9339-82796884bc23" });
+        const hubspotClient = new hubspot.Client({ "accessToken":  process.env.HUBSPOT_KEY });
 
         const properties = {
             "company": "Ivory",

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const connectcDatabase = () => {
     console.log("Tentando Conectar (MongoDB)")
 
-    mongoose.connect("mongodb+srv://LukyAguiar:XVK9tbsKCXssGpB0@softcluster.b4rt9zl.mongodb.net/?retryWrites=true&w=majority",
+    mongoose.connect( process.env.MONGODB_URI,
     { useNewUrlParser: true, useUnifiedTopology:true})
     .then(() => console.log("MongoDB Atlas conectado"))
     .catch((error) => console.log(error))
